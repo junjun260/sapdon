@@ -1,0 +1,32 @@
+{
+	"texture_data": {
+		"vampirism_vampire_fang": {
+			"textures": "textures/items/vampire_fang"
+		},
+		
+		"vampirism_gem_of_binding": {
+			"textures": "textures/items/gem_of_binding"
+		},
+		"vampire_armor_helmet": {
+			"textures": "textures/items/vampire_armor_helmet"
+		},
+		"vampire_armor_chestplate": {
+			"textures": "textures/items/vampire_armor_chestplate"
+		},
+		"vampire_armor_leggings": {
+			"textures": "textures/items/vampire_armor_leggings"
+		},
+		"vampire_armor_boots": {
+			"textures": "textures/items/vampire_armor_boots"
+		},
+		"vampire_garlic": {
+			"textures": "textures/items/garlic_0"
+		},
+		"vampire_garlic_bomb": {
+			"textures": "textures/items/garlic_bomb_0"
+		},
+		"masterball": {
+			"textures": "textures/items/masterball"
+		}
+	}
+}

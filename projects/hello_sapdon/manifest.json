@@ -1,0 +1,13 @@
+{
+    "mod_name": "hello_sapdon",
+    "authors": [
+        "xiaoben"
+    ],
+    "description": "这里是描述 阿吧吧",
+    "min_engine_version":[1,19,50],
+    "version": [0,0,1],
+    "scripts":{
+        "amb":"scripts/amb/main.mjs",
+        "sapi":"scripts/sapi/index.js"
+    }
+}

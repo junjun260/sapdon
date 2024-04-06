@@ -1,0 +1,14 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "sapdon:masterball"
+    },
+    "components": {
+      "minecraft:foil": false,
+      "minecraft:max_damage": 0,
+      "minecraft:use_duration": 0,
+      "minecraft:max_stack_size": 64
+    }
+  }
+}

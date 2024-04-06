@@ -1,0 +1,1 @@
+ItemAPI.createItem("sapdon:masterball","item","masterball");

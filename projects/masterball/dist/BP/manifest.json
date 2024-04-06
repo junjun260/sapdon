@@ -1,0 +1,46 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "masterball",
+    "uuid": "c47d6e5b-93da-4512-8dde-2ea338d6d358",
+    "version": [
+      0,
+      0,
+      1
+    ],
+    "description": "神奇的大师球  欢迎加入q群315179277,模组第一时间将在群里更新      未经允许，请勿转载  §2by 君俊菌啊 or xiaoben    ",
+    "min_engine_version": [
+      1,
+      19,
+      50
+    ]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "a95c8a9a-b4ba-43b1-83f3-be54f1b2af3b",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "37c1788c-1ea6-45f9-aacb-d829ea608fa3",
+      "entry": "scripts/sapi/index.js",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "module_name": "@minecraft/server",
+      "version": "1.9.0-beta"
+    }
+  ]
+}

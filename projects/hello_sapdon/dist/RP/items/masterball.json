@@ -1,0 +1,11 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "sapdon:masterball"
+    },
+    "components": {
+      "minecraft:icon": "masterball"
+    }
+  }
+}

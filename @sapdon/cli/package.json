@@ -1,0 +1,12 @@
+{
+  "name": "@sapdon/cli",
+  "version": "1.0.0",
+  "description": "",
+  "contributors": [
+    {
+      "name": "junjun260",
+      "email": "2102607667@qq.com"
+    }
+  ],
+  "license": "MIT"
+}

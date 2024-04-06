@@ -1,0 +1,41 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "hello_sapdon",
+    "uuid": "c0637e8a-cc88-4408-a927-d74abbc1955d",
+    "version": [
+      0,
+      0,
+      1
+    ],
+    "description": "这里是描述 阿吧吧",
+    "min_engine_version": [
+      1,
+      19,
+      50
+    ]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "5fb5c824-9bd0-4908-a124-7c373b8b5bb7",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "37c1788c-1ea6-45f9-aacb-d829ea608fa3",
+      "entry": "scripts/sapi/index.js",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "dependencies": []
+}
