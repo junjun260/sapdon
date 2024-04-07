@@ -1,0 +1,25 @@
+Builder构建器类
+
+是什么?
+
+Builder是用于构建Addon中一些文件如json的操作类,封装了--些构建特定json结构的方便方法,简单来说就对手套json文件的映射
+
+为什么?
+
+什么需要Builder呢，Mojang官方使用Addon包来作为面向开发者的拓展方式，为了方便更多玩家，以底门槛来编写拓展玩法,官方选择了以json (主要)文件来提供接口的方式
+虽然json语法简单，但是后期想要单凭json来编写出功能强大的拓展玩法，费时费力，不好维护，而且包里文件太过于分散，因此sapdon将其文件全部拉回来，统一成一个整体，通过sapdon封装的api来实现传统写json的方式，因为addon的主要单位是json文件，为了实现对多种不同结构的json文件的操作，sapdon封装了Builder类实现这个功能
+如何使用？
+   首先Builder类是一个写对应json文件操作类，比较基础，使用需要一些addon基础。
+
+假设你想写1.16.100版本格式的item的文件
+
+//导入类
+import {ItemBuilder} from './@sapdon/core/builders/ItemBuilder'
+
+const item = new ItemBuilder("sapdon:item","1.10.0")
+      .setCategory("item");
+      console.log(item.build())
+
+输出内容:
+
+这样就得到了相应的对象，然后将这个对象文本化就复制到你的包里就行.

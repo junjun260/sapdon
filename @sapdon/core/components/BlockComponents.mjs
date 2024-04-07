@@ -1,4 +1,4 @@
-export var BlockComponents = {
+export const BlockComponents = {
   queuedTicking:function(looping,interval_range,event,target,condition){
       return {
         "minecraft:queued_ticking": {

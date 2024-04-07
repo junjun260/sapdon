@@ -1,4 +1,4 @@
-let event = {
+const  event = {
     //播放项摆动动画  无
     "swing": {},
     //射击组件

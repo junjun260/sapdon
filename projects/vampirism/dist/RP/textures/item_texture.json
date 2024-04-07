@@ -1,0 +1,151 @@
+{
+  "texture_data": {
+    "bloodEye_0": {
+      "textures": "textures/items/bloodEye_0.png"
+    },
+    "bloodthirsty_0": {
+      "textures": "textures/items/bloodthirsty_0.png"
+    },
+    "bloodthirsty_1": {
+      "textures": "textures/items/bloodthirsty_1.png"
+    },
+    "bloodthirsty_10": {
+      "textures": "textures/items/bloodthirsty_10.png"
+    },
+    "bloodthirsty_2": {
+      "textures": "textures/items/bloodthirsty_2.png"
+    },
+    "bloodthirsty_3": {
+      "textures": "textures/items/bloodthirsty_3.png"
+    },
+    "bloodthirsty_4": {
+      "textures": "textures/items/bloodthirsty_4.png"
+    },
+    "bloodthirsty_5": {
+      "textures": "textures/items/bloodthirsty_5.png"
+    },
+    "bloodthirsty_6": {
+      "textures": "textures/items/bloodthirsty_6.png"
+    },
+    "bloodthirsty_7": {
+      "textures": "textures/items/bloodthirsty_7.png"
+    },
+    "bloodthirsty_8": {
+      "textures": "textures/items/bloodthirsty_8.png"
+    },
+    "bloodthirsty_9": {
+      "textures": "textures/items/bloodthirsty_9.png"
+    },
+    "blood_bottle_0": {
+      "textures": "textures/items/blood_bottle_0.png"
+    },
+    "blood_bottle_1": {
+      "textures": "textures/items/blood_bottle_1.png"
+    },
+    "blood_bottle_2": {
+      "textures": "textures/items/blood_bottle_2.png"
+    },
+    "blood_bottle_3": {
+      "textures": "textures/items/blood_bottle_3.png"
+    },
+    "blood_bottle_4": {
+      "textures": "textures/items/blood_bottle_4.png"
+    },
+    "blood_bottle_5": {
+      "textures": "textures/items/blood_bottle_5.png"
+    },
+    "blood_bottle_6": {
+      "textures": "textures/items/blood_bottle_6.png"
+    },
+    "blood_bottle_7": {
+      "textures": "textures/items/blood_bottle_7.png"
+    },
+    "blood_bottle_8": {
+      "textures": "textures/items/blood_bottle_8.png"
+    },
+    "blood_bottle_9": {
+      "textures": "textures/items/blood_bottle_9.png"
+    },
+    "blood_bottle_bundle_0": {
+      "textures": "textures/items/blood_bottle_bundle_0.png"
+    },
+    "cheat_level_up_0": {
+      "textures": "textures/items/cheat_level_up_0.png"
+    },
+    "coffin_0": {
+      "textures": "textures/items/coffin_0.png"
+    },
+    "concentratedGarlic_0": {
+      "textures": "textures/items/concentratedGarlic_0.png"
+    },
+    "garlic_0": {
+      "textures": "textures/items/garlic_0.png"
+    },
+    "garlic_bomb_0": {
+      "textures": "textures/items/garlic_bomb_0.png"
+    },
+    "gemOfBinding_0": {
+      "textures": "textures/items/gemOfBinding_0.png"
+    },
+    "humanHeart_0": {
+      "textures": "textures/items/humanHeart_0.png"
+    },
+    "leechSwordUnused_0": {
+      "textures": "textures/items/leechSwordUnused_0.png"
+    },
+    "leechSword_1": {
+      "textures": "textures/items/leechSword_1.png"
+    },
+    "minionNameTag_0": {
+      "textures": "textures/items/minionNameTag_0.png"
+    },
+    "pitchfork": {
+      "textures": "textures/items/pitchfork.png"
+    },
+    "pureBlood_0": {
+      "textures": "textures/items/pureBlood_0.png"
+    },
+    "pureBlood_1": {
+      "textures": "textures/items/pureBlood_1.png"
+    },
+    "pureBlood_2": {
+      "textures": "textures/items/pureBlood_2.png"
+    },
+    "pureBlood_3": {
+      "textures": "textures/items/pureBlood_3.png"
+    },
+    "pureBlood_4": {
+      "textures": "textures/items/pureBlood_4.png"
+    },
+    "sunscreen_0": {
+      "textures": "textures/items/sunscreen_0.png"
+    },
+    "vampireArmor_boots_0": {
+      "textures": "textures/items/vampireArmor_boots_0.png"
+    },
+    "vampireArmor_chestplate_0": {
+      "textures": "textures/items/vampireArmor_chestplate_0.png"
+    },
+    "vampireArmor_helmet_0": {
+      "textures": "textures/items/vampireArmor_helmet_0.png"
+    },
+    "vampireArmor_leggings_0": {
+      "textures": "textures/items/vampireArmor_leggings_0.png"
+    },
+    "vampireBook_0": {
+      "textures": "textures/items/vampireBook_0.png"
+    },
+    "vampireFang_0": {
+      "textures": "textures/items/vampireFang_0.png"
+    },
+    "vampireOrchid_0": {
+      "textures": "textures/items/vampireOrchid_0.png"
+    },
+    "weakHumanHeart_0": {
+      "textures": "textures/items/weakHumanHeart_0.png"
+    },
+    "weakVampireFang_0": {
+      "textures": "textures/items/weakVampireFang_0.png"
+    }
+  }
+}

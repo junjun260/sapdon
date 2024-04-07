@@ -1,7 +1,7 @@
 {
-	"texture_data": {
-		"masterball": {
-			"textures": "textures/items/masterball"
-		}
-	}
+  "texture_data": {
+    "masterball": {
+      "textures": "textures/items/masterball.png"
+    }
+  }
 }

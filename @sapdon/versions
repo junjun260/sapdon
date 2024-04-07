@@ -1,0 +1,10 @@
+1.1.1
+大版本 增加功能 修复bug
+
+update:
+    1.添加自动生成item_texture.json的功能,用户只需要将贴图放入textures/items文件夹下即可
+    2.EntityAPI加入TestEntity类
+    3.为TestEntity类封装了setTexture与setGeometry函数接口
+    4.编写了Builder构造器部分文档
+repair:
+    修复TestEntity在添加多种生物时,生成的json文件错误的问题

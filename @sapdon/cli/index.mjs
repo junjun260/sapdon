@@ -6,7 +6,7 @@ import vm from "node:vm"
 
 import  {Mod, pathConfig}  from "./manifest.mjs";
 import { copyFileMC, copyFolder, saveFile,removeImportsFromFile,traverseDirectory} from "./tools/file.mjs";
-
+import {generateItemTextureJson } from "./tools/itemTexturesSet.mjs"
 import { Entity, Projectile } from "../core/class/Entity.mjs";
 import { Equipment } from "../core/class/Equipment.mjs";
 
@@ -27,6 +27,7 @@ import { EntityBehavoirBuilder } from "../core/builders/EntityBehaviorBuilder.mj
 import { EntityResorceBuilder } from "../core/builders/EntityResourceBuilder.mjs";
 import { BlockBuilder } from "../core/builders/BlockBuilder.mjs";
 import { RecipesBuilder } from "../core/builders/RecipesBuilder.mjs";
+
 
 //启动
 //执行遍历projects文件夹下的目录所有的manifest
@@ -66,6 +67,18 @@ manifests.forEach((element,index)=>{
 
     copyFileMC(`./projects/${project_name}/pack_icon.png`,`${behPathCopy}/pack_icon.png`);
     copyFileMC(`./projects/${project_name}/pack_icon.png`,`${resPathCopy}/pack_icon.png`);
+
+    //itemTextures.json
+    const itemTexturesPath = `./projects/${project_name}/textures/items`;
+    const outputPath = `./projects/${project_name}/textures/item_texture.json`;
+    
+    generateItemTextureJson(itemTexturesPath, outputPath)
+    .then(() => {
+      console.log("Item texture JSON file generated successfully.");
+    })
+    .catch((err) => {
+      console.error("Error generating item texture JSON:", err);
+    });
 
     //复制文件夹
     copyFolder(`./projects/${project_name}/textures`,`${resPath}/textures`);
@@ -112,127 +125,7 @@ manifests.forEach((element,index)=>{
     // 在虚拟上下文中执行代码
     const sandbox = vm.createContext(context);
     script.runInContext(sandbox);
-/*
-    ItemAPI.getAllItems().forEach((item)=>{
-      if(item instanceof Item){
-        const behData = new ItemBuilder(item.identifier,'1.10.0');
-        behData.tags.push("beh");
-    
-        const resData = new ItemBuilder(item.identifier,'1.10.0');
-        resData.tags.push("res");
-    
-        resData.setComponents({"minecraft:icon": item.texture});
-    
-        //components
-        const defaultComponents = {
-            "foil": false,
-            "max_damage": 0,
-            "use_duration": 0,
-            "max_stack_size": 64,
-            ...item.componentsOptions
-        };
 
-        Object.entries(defaultComponents).forEach(([key,value])=>{
-            item.components.push({[`minecraft:${key}`]:value});
-        }, {});
-
-        item.components.forEach((component)=>{
-            behData.setComponents(component);
-        });
-      }
-
-      if(item instanceof Equipment){
-        const behData = new ItemBuilder(item.identifier,'1.16.100')
-        behData.setCategory(item.category)
-        behData.setComponents(ItemComponents.icon(item.texture));
-
-        //this.setComponentsOptions(this.componentsOptions);
-        //tags
-        item.tags.forEach((tag)=>{
-            item.addComponet({[`tag:${tag}`]:{}});
-        });
-        //repairableItemList
-        if(item.repairableItemList.length>0)
-        item.addComponet(ItemComponents.repairable(item.repairableItemList));
-
-        //components
-        item.components.forEach((component)=>{
-            behData.setComponents(component);
-        });
-
-        //events
-        item.events.forEach((event)=>{
-            behData.setEvents(event);
-        });
-      }
-    });
-
-    BlockAPI.getAllBlocks().forEach((block)=>{
-        if(block instanceof Block){
-          const blockData = new BlockBuilder(block.identifier,"1.12.30");
-          blockData.setIdentifier(block.identifier);
-          blockData.setCategory(block.category);
-          block.registerState("sapdon:block_variant_tag",{
-            "values": { "min": 0, "max": block.variantDatas.length>1?block.variantDatas.length-1:1 } 
-          });
-          //materialInstances
-          block.variantDatas.forEach(({stateTag})=>{
-            block.addPermutation(`q.block_state('sapdon:block_variant_tag') == ${stateTag}`,BlockComponents.materialInstances(block.materialInstances[stateTag]));
-          });
-          //states
-          for(let name in block.states){
-            blockData.setStates(name,block.states[name]);
-          }
-          //components
-          blockData.setComponents(block.components);
-          
-          //events
-          blockData.setEvents(block.events);
-          //permutations
-          block.permutations.forEach(({condition,components})=>{
-            //console.log(components)
-            blockData.addPermutation(condition,components);
-          });
-        }
-    });
-
-    EntityAPI.getAllEntities().forEach((entity)=>{
-      if(entity instanceof Entity){
-        const behData = new EntityBehavoirBuilder(entity.identifier,"1.16.0",{});
-        const resData = new EntityResorceBuilder(entity.identifier,"1.10.0",{});
-
-        behData.setSpawnable(entity.options.spawnable||true);
-        behData.setSummonable(entity.options.summonable||true);
-        behData.setExperimental(entity.options.experimental||false);
-        behData.setRuntimeIdentifier(entity.options.runtime_identifier == "self" ? identifier : entity.options.runtime_identifier);
-        
-        //beh
-        entity.components.concat(entity.behaviorData.components);
-
-        entity.components.forEach((component)=>{
-          behData.setComponents(component);
-        });
-
-        //res
-        entity.resourceData.materials.forEach(({name,material})=>{
-          resData.setMaterials(name,material);
-        });
-        entity.resourceData.textures.forEach(({name,texture})=>{
-          resData.setTextures(name,texture);
-        });
-        entity.resourceData.geometry.forEach(({name,geometry})=>{
-          resData.setGeometry(name,geometry);
-        });
-        entity.resourceData.animations.forEach(({name,animation})=>{
-          resData.setAnimations(name,animation);
-        });
-        entity.resourceData.scripts.forEach(({name,script})=>{
-          resData.setScripts(name,script);
-        });
-        resData.addRenderController(...entity.resourceData.renderControllers);
-      }
-    });
-*/
     //languages.json
     const languages = Object.keys(Translater.languages);console.log(languages)
     saveFile(`${resPathCopy}/texts/languages.json`,JSON.stringify(languages));
@@ -277,6 +170,7 @@ manifests.forEach((element,index)=>{
           saveFile(`${behPath}/${path}.json`,dataText);
           break;
         case "entity":
+          console.log(dataText);
           saveFile(`${behPathCopy}/entities/${name}.json`,dataText);
           saveFile(`${behPath}/entities/${name}.json`,dataText);
           break;

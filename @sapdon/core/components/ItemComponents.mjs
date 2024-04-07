@@ -1,5 +1,5 @@
 //Items 1.16.100+
-export var ItemComponents = {
+export const ItemComponents = {
     glint:function(boolean){
         return {"minecraft:glint": boolean}
     },

@@ -3,15 +3,18 @@
   "minecraft:client_entity": {
     "description": {
       "identifier": "poke:projectile_masterball",
-      "materials": {
-        "default": "snowball"
-      },
       "textures": {
         "default": "textures/items/masterball"
+      },
+      "materials": {
+        "default": "snowball"
       },
       "geometry": {
         "default": "geometry.item_sprite"
       },
+      "render_controllers": [
+        "controller.render.item_sprite"
+      ],
       "animations": {
         "flying": "animation.actor.billboard"
       },
@@ -19,10 +22,7 @@
         "animate": [
           "flying"
         ]
-      },
-      "render_controllers": [
-        "controller.render.item_sprite"
-      ]
+      }
     }
   }
 }

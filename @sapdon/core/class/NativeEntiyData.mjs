@@ -1,12 +1,15 @@
 import { readFileSync } from "fs"
 
 export class NativeEntityData{
-    static behData  = JSON.parse(readFileSync('core/data/data_bp.json','utf8'));
-    static resData  = JSON.parse(readFileSync('core/data/data_rp.json','utf8'));
+    static behData  = JSON.parse(readFileSync('@sapdon/core/data/data_bp.json','utf8'));
+    static resData  = JSON.parse(readFileSync('@sapdon/core/data/data_rp.json','utf8'));
+    static cloneData(data){
+        return JSON.parse(JSON.stringify(data));
+    }
     static getDataById(type,id){
         if(type == 'beh'){
-            return this.behData[id];
+            return this.cloneData(this.behData[id]);
         }
-        return this.resData[id];
+        return this.cloneData(this.resData[id]);
     }
 }

@@ -3,7 +3,7 @@ import { Builder } from "./builder.mjs";
 export class EntityBehavoirBuilder extends Builder{
     constructor(name, version, data ={}){
       super(name, "entity", version, data);
-      this.setIdentifier(name);
+      this.setIdentifier(this.name);
     }
     setProperties(name, content) {
       const properties = this.data.description ? this.data.description.properties : {};

@@ -1,5 +1,5 @@
 
-export var EntityComponents = {
+export const EntityComponents = {
     behavior:{
         random_stroll:function(priority,speed_multiplier){
             return {

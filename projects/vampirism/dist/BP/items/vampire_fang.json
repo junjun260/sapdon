@@ -1,0 +1,14 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "vampirism:vampire_fang",
+      "category": "Items"
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "vampireFang"
+      }
+    }
+  }
+}

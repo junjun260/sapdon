@@ -5,10 +5,7 @@
       "identifier": "sapdon:masterball"
     },
     "components": {
-      "minecraft:foil": false,
-      "minecraft:max_damage": 0,
-      "minecraft:use_duration": 0,
-      "minecraft:max_stack_size": 64
+      "minecraft:icon": "masterball"
     }
   }
 }

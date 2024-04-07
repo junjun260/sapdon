@@ -12,7 +12,7 @@
 import fs from "fs";
 import path from "path";
 
-async function generateItemTextureJson(itemTexturesPath, outputPath) {
+export async function generateItemTextureJson(itemTexturesPath, outputPath) {
   const fileList = [];
   const directoryList = [itemTexturesPath];
   const itemTexturesSet = {};
@@ -29,25 +29,24 @@ async function generateItemTextureJson(itemTexturesPath, outputPath) {
         directoryList.push(filePath);
       } 
       else if (file.endsWith(".png")) {
-        const textureData = { textures: filePath.replace("./projects/thaumcraft/","") };
+        const filePathList = filePath.split("/");
+        const replacePath = filePathList[0]+"/"+filePathList[1]+"/"+filePathList[2]+"/";
+        const textureData = { textures: filePath.replace(replacePath,"") };
+        //console.log(replacePath);
         const fileName = path.basename(file, ".png");
         itemTexturesSet[fileName] = textureData;
       }
     }
   }
 
-  const itemTextureJson = JSON.stringify(
-    { texture_data: itemTexturesSet },
-    null,
-    2
-  );
-
+  const itemTextureJson = JSON.stringify({ texture_data: itemTexturesSet },null,2);
   await fs.promises.writeFile(outputPath, itemTextureJson);
 }
 
+/*
 // Usage example:
-const itemTexturesPath = "./projects/thaumcraft/textures/items";
-const outputPath = "./projects/thaumcraft/textures/item_texture.json";
+const itemTexturesPath = "./projects/hello_sapdon/textures/items";
+const outputPath = "./projects/hello_sapdon/textures/item_texture.json";
 
 generateItemTextureJson(itemTexturesPath, outputPath)
   .then(() => {
@@ -56,3 +55,4 @@ generateItemTextureJson(itemTexturesPath, outputPath)
   .catch((err) => {
     console.error("Error generating item texture JSON:", err);
 });
+*/
