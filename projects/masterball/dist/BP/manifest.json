@@ -2,7 +2,7 @@
   "format_version": 2,
   "header": {
     "name": "masterball",
-    "uuid": "c47d6e5b-93da-4512-8dde-2ea338d6d358",
+    "uuid": "5fa28ced-58d9-42fd-aff2-b9ea9f4eb168",
     "version": [
       0,
       0,
@@ -18,7 +18,7 @@
   "modules": [
     {
       "type": "data",
-      "uuid": "a95c8a9a-b4ba-43b1-83f3-be54f1b2af3b",
+      "uuid": "ede9402b-f713-4390-8407-8495b5047e82",
       "version": [
         1,
         0,
@@ -27,8 +27,7 @@
     },
     {
       "type": "script",
-      "language": "javascript",
-      "uuid": "37c1788c-1ea6-45f9-aacb-d829ea608fa3",
+      "uuid": "a59803b0-24cf-4d23-8b16-919e0ef411b6",
       "entry": "scripts/sapi/index.js",
       "version": [
         0,

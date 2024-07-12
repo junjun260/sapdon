@@ -1,0 +1,11 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "vampirism:minion_name_tag"
+    },
+    "components": {
+      "minecraft:icon": "minionNameTag_0"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "vampirism:vampire_book_0"
+    },
+    "components": {
+      "minecraft:icon": "vampireBook_0"
+    }
+  }
+}

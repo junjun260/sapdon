@@ -1,0 +1,39 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "vampirism:vampire_armor_helmets",
+      "category": "Items"
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "vampireArmor_helmet_0"
+      },
+      "minecraft:armor": {
+        "protection": 2
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:durability": {
+        "max_durability": 200,
+        "damage_chance": {
+          "min": 1,
+          "max": 1
+        }
+      },
+      "minecraft:display_name": {
+        "value": "my head"
+      },
+      "minecraft:wearable": {
+        "dispensable": true,
+        "slot": "slot.armor.head"
+      },
+      "minecraft:enchantable": {
+        "slot": "armor_head",
+        "value": 9
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.helmet"
+      }
+    }
+  }
+}

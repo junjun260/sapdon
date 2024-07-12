@@ -4,6 +4,7 @@ export const pathConfig = {
   projectsPath: './projects'
 };
 
+//C:/Users/ASUS/AppData/Local/Packages/Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang
 class Manifest {
   constructor(version = 2, header = {}, modules = [], dependencies = []) {
     this.version = version;
@@ -21,6 +22,7 @@ class Manifest {
     }, null, 2);
   }
 }
+
 
 class Header {
   constructor(name = null, description = null, uuid = null, version = [], min_engine_version = []) {

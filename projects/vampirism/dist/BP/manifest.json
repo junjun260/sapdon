@@ -1,0 +1,45 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "vampirism",
+    "uuid": "0c152dff-ffa2-4f90-97db-055915032651",
+    "version": [
+      0,
+      0,
+      1
+    ],
+    "description": "欢迎加入q群315179277,模组第一时间将在群里更新      未经允许，请勿转载  §2by 君俊菌啊 or xiaoben    ",
+    "min_engine_version": [
+      1,
+      20,
+      10
+    ]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "dfc05162-2472-4f4c-af5f-f191298ae66d",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "script",
+      "uuid": "74bb4109-3586-44e0-879c-d5f5896bff50",
+      "entry": "scripts/sapi/index.js",
+      "version": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "module_name": "@minecraft/server",
+      "version": "1.12.0-beta"
+    }
+  ]
+}

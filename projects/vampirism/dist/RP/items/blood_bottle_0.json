@@ -1,0 +1,11 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "vampirism:blood_bottle_0"
+    },
+    "components": {
+      "minecraft:icon": "blood_bottle_0"
+    }
+  }
+}

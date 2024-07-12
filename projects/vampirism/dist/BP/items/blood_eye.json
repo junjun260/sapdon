@@ -1,0 +1,14 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "vampirism:blood_eye",
+      "category": "Items"
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "bloodEye_0"
+      }
+    }
+  }
+}

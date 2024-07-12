@@ -13,6 +13,7 @@ export class Item {
     this.behData = new ItemBuilder(identifier,"1.10.0").setCategory(category);
     this.behData.tags.push("beh");
     this.resData = new ItemBuilder(identifier,"1.10.0");
+    this.resData.tags.push("res");
     this.resData.addComponent({"minecraft:icon": texture});
 
     this.identifier = identifier;

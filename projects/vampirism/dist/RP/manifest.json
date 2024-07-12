@@ -1,0 +1,30 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "vampirism",
+    "uuid": "8d82d88c-bec1-4ee9-98a1-8f0b729c152e",
+    "version": [
+      0,
+      0,
+      1
+    ],
+    "description": "欢迎加入q群315179277,模组第一时间将在群里更新      未经允许，请勿转载  §2by 君俊菌啊 or xiaoben    ",
+    "min_engine_version": [
+      1,
+      20,
+      10
+    ]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "0ae5e400-705b-4a41-ada1-fce18d9f62d3",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "dependencies": []
+}

@@ -3,6 +3,7 @@ import { Boots, Chestplate, Helmet, Leggings } from "./Armor.mjs";
 import { Equipment } from "./Equipment.mjs";
 import { Food } from "./Food.mjs";
 import { Item } from "../class/Item.mjs"
+import { Axe, Pickaxe, Sword, Tool } from "./Tool.mjs";
 
 export const ItemAPI = {
     itemList:{},
@@ -60,6 +61,26 @@ export const ItemAPI = {
         }
         
     },
+    createToolItem(identifier, category, texture, componentsOptions = {}){
+        const item = new Tool(identifier, category, texture, componentsOptions);
+        this.itemList[identifier] = item;
+        return item;
+    },
+    createSwordItem(identifier, category, texture, componentsOpt = {}){
+        const item = new Sword(identifier, category, texture, componentsOpt);
+        this.itemList[identifier] = item;
+        return item;
+    },
+    createAxeItem(identifier, category, texture, componentsOpt = {}){
+        const item = new Axe(identifier, category, texture, componentsOpt);
+        this.itemList[identifier] = item;
+        return item;
+    },
+    createPickaxeItem(identifier, category, texture, componentsOpt = {}){
+        const item = new Pickaxe(identifier, category, texture, componentsOpt);
+        this.itemList[identifier] = item;
+        return item;
+    }
 }
 
 /*

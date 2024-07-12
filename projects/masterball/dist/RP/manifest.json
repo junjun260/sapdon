@@ -2,7 +2,7 @@
   "format_version": 2,
   "header": {
     "name": "masterball",
-    "uuid": "9bbd05cd-fa58-40e4-8f7f-ca8c6081381f",
+    "uuid": "10a5ed52-d7db-4ec3-97fd-1e44a47f6dd6",
     "version": [
       0,
       0,
@@ -18,7 +18,7 @@
   "modules": [
     {
       "type": "resources",
-      "uuid": "89e3606f-ca6c-4cb3-9549-33d4909fe380",
+      "uuid": "c7812a75-d3bc-443d-bb27-232f62cf1325",
       "version": [
         1,
         0,
@@ -26,10 +26,5 @@
       ]
     }
   ],
-  "dependencies": [
-    {
-      "module_name": "@minecraft/server",
-      "version": "1.9.0-beta"
-    }
-  ]
+  "dependencies": []
 }

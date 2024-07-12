@@ -1,0 +1,30 @@
+BlockAPI 方块类
+
+BlockAPI.getAllBlocks();
+
+BlockAPI.getBlockByStrings(name);
+
+BlockAPI.createBlock(identifier,category,variantDatas);
+
+    参数 identifier[string] : 
+        方块唯一标识符,由命名空间与方块名称组成，如"namespace:block";
+    参数 category[string] : 
+        方块分类，可选类型: "nature";
+    参数 variantDatas[Array] : 
+        变种数据描述集，由特定格式的对象组成，每个对象描述一种方块变种，
+        其中特定格式为{stateTag,textures,material}
+            stateTag[string] : 
+                变种标签（必须给定），如"0","1","2"等
+            textures[array] : 
+                纹理集,当方块为立方体时，材质默认顺序为['*','up', 'down', 'north', 'east', 'south','west']
+            其中"*"为方块被破坏时使用的纹理
+            material[Object] : 
+                [可选]材料设置，用于描述当前变种的材料 
+            格式{render_method,face_dimming,ambient_occlusion}
+
+
+BlockAPI.createTileBlock(identifier,category,variantDatas);
+BlockAPI.createCropBlock(identifier,category,variantDatas);
+BlockAPI.createTreeBlock(identifier,category,variantDatas);
+
+ 

@@ -1,6 +1,8 @@
 import { EntityBehavoirBuilder } from "../builders/EntityBehaviorBuilder.mjs";
 import { EntityResorceBuilder } from "../builders/EntityResourceBuilder.mjs";
+import { EntityComponents } from "../components/EntityComponents.mjs";
 import { NativeEntityData } from "./NativeEntiyData.mjs";
+
 
 export class TestEntity {
     constructor(identifier,templateEntityType,texture,basic_option){
@@ -23,6 +25,10 @@ export class TestEntity {
     }
     setTextures(name,texture){
         this.resource.setTextures(name,texture);
+        return this;
+    }
+    setLootTable(loot){
+        this.behavior.addComponent(EntityComponents.loot(loot));
         return this;
     }
 }

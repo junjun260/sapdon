@@ -1,6 +1,7 @@
 import { BlockBuilder } from "../builders/BlockBuilder.mjs";
 import { LootTableBuilder } from "../builders/LootTableBuilder.mjs";
 import { BlockComponents } from "../components/BlockComponents.mjs";
+import { BlockTextureSet } from "./BlockTextureSet.mjs";
 
 export class Block {
     constructor(identifier, category, variantDatas){
@@ -22,6 +23,9 @@ export class Block {
       });
 
       const sideArr = ['*','up', 'down', 'north', 'east', 'south','west'];
+      const blockTextures = {
+        textures:{}
+      };
       this.variantDatas.forEach(({stateTag,textures,material}) => {
         const materialObj = {};
         textures.forEach((texture,index)=>{
@@ -31,11 +35,12 @@ export class Block {
               "face_dimming": material?material.face_dimming:false,
               "ambient_occlusion": material?material.ambient_occlusion:false
           };
+          blockTextures.textures[sideArr[index]] = texture;
         });
         this.materialInstances[stateTag] = materialObj;
         this.setVariantMaterialInstances(stateTag,materialObj);
       });
-
+      BlockTextureSet[this.identifier] = blockTextures;
     }
     // 添加事件
     addEvent(eventName, event) {

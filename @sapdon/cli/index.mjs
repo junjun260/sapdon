@@ -27,6 +27,10 @@ import { EntityBehavoirBuilder } from "../core/builders/EntityBehaviorBuilder.mj
 import { EntityResorceBuilder } from "../core/builders/EntityResourceBuilder.mjs";
 import { BlockBuilder } from "../core/builders/BlockBuilder.mjs";
 import { RecipesBuilder } from "../core/builders/RecipesBuilder.mjs";
+import { HudScreen, TextControl } from "../core/ui/UI.mjs";
+import { generateBlockTextureJson } from "./tools/blockTexturesSet.mjs";
+import { BlockEvent } from "../core/events/BlockEvents.mjs";
+import { BlockTextureSet } from "../core/class/BlockTextureSet.mjs";
 
 
 //启动
@@ -71,13 +75,25 @@ manifests.forEach((element,index)=>{
     //itemTextures.json
     const itemTexturesPath = `./projects/${project_name}/textures/items`;
     const outputPath = `./projects/${project_name}/textures/item_texture.json`;
-    
+
     generateItemTextureJson(itemTexturesPath, outputPath)
     .then(() => {
       console.log("Item texture JSON file generated successfully.");
     })
     .catch((err) => {
       console.error("Error generating item texture JSON:", err);
+    });
+    
+    //blockTextures.json
+    const blockTexturesPath = `./projects/${project_name}/textures/blocks`;
+    const outputBlockPath = `./projects/${project_name}/textures/terrain_texture.json`;
+    
+    generateBlockTextureJson(blockTexturesPath, outputBlockPath)
+    .then(() => {
+      console.log("Block texture JSON file generated successfully.");
+    })
+    .catch((err) => {
+      console.error("Error generating block texture JSON:", err);
     });
 
     //复制文件夹
@@ -108,23 +124,31 @@ manifests.forEach((element,index)=>{
     // 创建一个具有所需模块的虚拟上下文
     const context = {
       fs:fs,
+      HudScreen:HudScreen,
+      TextControl:TextControl,
       Equipment: Equipment,
       Projectile: Projectile,
       Builder:Builder,
       RecipesBuilder:RecipesBuilder,
       LootTableBuilder:LootTableBuilder,
       ItemEvent:ItemEvent,
+      BlockEvent:BlockEvent,
       Translater:Translater,
       ItemAPI:ItemAPI,
       BlockAPI:BlockAPI,
       EntityAPI:EntityAPI,
       ItemComponents:ItemComponents,
       BlockComponents:BlockComponents,
-      EntityComponents:EntityComponents
+      EntityComponents:EntityComponents,
     };
     // 在虚拟上下文中执行代码
     const sandbox = vm.createContext(context);
     script.runInContext(sandbox);
+
+    //blocks.json
+
+    saveFile(`${resPathCopy}/blocks.json`,JSON.stringify(BlockTextureSet));
+    saveFile(`${resPath}/blocks.json`,JSON.stringify(BlockTextureSet));
 
     //languages.json
     const languages = Object.keys(Translater.languages);console.log(languages)
@@ -144,6 +168,11 @@ manifests.forEach((element,index)=>{
       saveFile(`${resPathCopy}/texts/${lang}.lang`,conext);
       saveFile(`${resPath}/texts/${lang}.lang`,conext);
     }
+
+    //UI
+    const hud_screen_conext = HudScreen.build();
+    saveFile(`${resPathCopy}/ui/hud_screen.json`,hud_screen_conext);
+    saveFile(`${resPath}/ui/hud_screen.json`,hud_screen_conext);
 
     Builder.builderList.forEach((builder)=>{
       const lable = builder.lable;
@@ -179,8 +208,8 @@ manifests.forEach((element,index)=>{
           saveFile(`${resPath}/entity/${name}.json`,dataText);
           break;
         case "attachable":
-          saveFile(`${behPathCopy}/attachables/${name}.json`,dataText);
-          saveFile(`${behPath}/attachables/${name}.json`,dataText);
+          saveFile(`${resPathCopy}/attachables/${name}.json`,dataText);
+          saveFile(`${resPath}/attachables/${name}.json`,dataText);
           break;
         case "recipe_shaped":
           saveFile(`${behPathCopy}/recipes/${name}.json`,dataText);

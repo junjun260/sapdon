@@ -1,0 +1,9 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "vampirism:gem_of_binding",
+      "category": "Items"
+    }
+  }
+}

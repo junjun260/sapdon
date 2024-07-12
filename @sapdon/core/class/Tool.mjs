@@ -1,4 +1,4 @@
-import { Event } from "../objects/Event.mjs";
+import { ItemEvent } from "../events/ItemEvents.mjs";
 import { Equipment } from "./Equipment.mjs";
 
 
@@ -40,7 +40,7 @@ export class Tool extends Equipment {
    * @param {number} amount 每次使用工具磨损值
    */
   setToolDamage(amount) {
-    this.addEvent("amb:on_tool_used", Event.damage("durability", "self", amount));
+    this.addEvent("amb:on_tool_used", ItemEvent.damage("durability", "self", amount));
   }
 
   onClickOnUse(event) {

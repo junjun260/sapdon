@@ -8,3 +8,19 @@ update:
     4.编写了Builder构造器部分文档
 repair:
     修复TestEntity在添加多种生物时,生成的json文件错误的问题
+
+1.2.1
+
+update:
+    1.添加了一些常用工具物品类的封装,as Tool,Sword,Axe,PickAxe 
+    2.写了一点sapdon对JsonUI控件的支持 HudScreen,ImageControl,TextControl //2024.4.14
+repair:
+    1.修复在创建Food物品时,贴图失效问题
+
+1.3.1
+
+update: //2024.7.10
+    1.自动生成terrain_texture.json的功能,用户只需要将贴图放入textures/blocks文件夹下即可
+    2.添加BlockAPI.createTreeBlock方法,用于创建如原版原木一样可旋转的方块
+    3.编写了BlockAPI的部分文档
+    4.blocks.json文件的生成

@@ -101,20 +101,20 @@ world.afterEvents.projectileHitBlock.subscribe((afterprojectileHitBlockEvent)=>{
     if(!source||!projectile) return
     if(source.typeId != "minecraft:player"||projectile.typeId!= "poke:projectile_masterball") return
 
-    //检查抛掷物ID是否为栈中元素 是就释放 否就捕捉
+    //检查抛掷物ID是否为栈中元素 是就释放
     const state = projectileIdStack.includes(projectile.id);
 
-    if(!state) return
-
-    const index = projectileIdStack.indexOf(projectile.id);
-    const entityId = entityReleseStack[index];
-    //删除stack里的
-    entityReleseStack.slice(index,1);
-    projectileIdStack.slice(index,1);
-    const structureName = replaceNumbersWithLetters(`${-entityId}`);
-    //world.sendMessage("structureName1:"+structureName);
-    dimension.runCommand(`structure load masterball_space_${structureName} ${dropLocation.x} ${dropLocation.y} ${dropLocation.z} 0_degrees none true false false`);
-    dimension.runCommand(`structure delete masterball_space_${structureName}`);
+    if(state){
+        const index = projectileIdStack.indexOf(projectile.id);
+        const entityId = entityReleseStack[index];
+        //删除stack里的
+        entityReleseStack.slice(index,1);
+        projectileIdStack.slice(index,1);
+        const structureName = replaceNumbersWithLetters(`${-entityId}`);
+        //world.sendMessage("structureName1:"+structureName);
+        dimension.runCommand(`structure load masterball_space_${structureName} ${dropLocation.x} ${dropLocation.y} ${dropLocation.z} 0_degrees none true false false`);
+        dimension.runCommand(`structure delete masterball_space_${structureName}`);
+    }
 
     const masterball = new ItemStack("poke:uncaught_masterball",1);
     dimension.spawnItem(masterball,dropLocation);

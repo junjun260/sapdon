@@ -1,68 +1,104 @@
 {
-	"resource_pack_name": "scjson",
-	"texture_name": "atlas.terrain",
-	"padding": 8,
-	"num_mip_levels": 4,
-	"texture_data": {
-		"test_block": {
-			"textures": "textures/blocks/test_block"
-		},
-		"arcane_workbench_side":{
-			"textures":"textures/blocks/arcane_workbench_side"
-		},
-		"arcane_workbench_top":{
-			"textures":"textures/blocks/arcane_workbench_top"
-		},
-		"base_wood_grain":{
-			"textures":"textures/blocks/base_wood_grain"
-		},
-		"wheat_stage_0":{
-			"textures":"textures/blocks/wheat_stage_0"
-		},
-		"wheat_stage_1":{
-			"textures":"textures/blocks/wheat_stage_1"
-		},
-		"wheat_stage_2":{
-			"textures":"textures/blocks/wheat_stage_2"
-		},
-		"wheat_stage_3":{
-			"textures":"textures/blocks/wheat_stage_3"
-		},
-		"wheat_stage_4":{
-			"textures":"textures/blocks/wheat_stage_4"
-		},
-		"wheat_stage_5":{
-			"textures":"textures/blocks/wheat_stage_5"
-		},
-		"wheat_stage_6":{
-			"textures":"textures/blocks/wheat_stage_6"
-		},
-		"wheat_stage_7":{
-			"textures":"textures/blocks/wheat_stage_7"
-		},
-		"garlic_stage_0":{
-			"textures":"textures/blocks/garlic_stage_0"
-		},
-		"garlic_stage_1":{
-			"textures":"textures/blocks/garlic_stage_1"
-		},
-		"garlic_stage_2":{
-			"textures":"textures/blocks/garlic_stage_2"
-		},
-		"garlic_stage_3":{
-			"textures":"textures/blocks/garlic_stage_3"
-		},
-		"jar_side":{
-			"textures":"textures/blocks/jar_side"
-		},
-		"jar_top":{
-			"textures":"textures/blocks/jar_top"
-		},
-		"jar_bottom":{
-			"textures":"textures/blocks/jar_bottom"
-		},
-		"animatedglow":{
-			"textures":"textures/blocks/animatedglow"
-		}
-	}
+  "texture_name": "atlas.terrain",
+  "resource_pack_name": "sapdon",
+  "padding": 8,
+  "num_mip_levels": 4,
+  "texture_data": {
+    "animatedglow": {
+      "textures": "textures/blocks/animatedglow.png"
+    },
+    "arcane_workbench_side": {
+      "textures": "textures/blocks/arcane_workbench_side.png"
+    },
+    "arcane_workbench_top": {
+      "textures": "textures/blocks/arcane_workbench_top.png"
+    },
+    "base_wood_grain": {
+      "textures": "textures/blocks/base_wood_grain.png"
+    },
+    "castleBlock_darkBrickBloody_0": {
+      "textures": "textures/blocks/castleBlock_darkBrickBloody_0.png"
+    },
+    "castleBlock_darkSlab_0": {
+      "textures": "textures/blocks/castleBlock_darkSlab_0.png"
+    },
+    "castleBlock_purpleBrick_0": {
+      "textures": "textures/blocks/castleBlock_purpleBrick_0.png"
+    },
+    "castleBlock_purpleSlab_0": {
+      "textures": "textures/blocks/castleBlock_purpleSlab_0.png"
+    },
+    "churchAltar": {
+      "textures": "textures/blocks/churchAltar.png"
+    },
+    "cursedEarth_0": {
+      "textures": "textures/blocks/cursedEarth_0.png"
+    },
+    "garlicTorchStrong_0": {
+      "textures": "textures/blocks/garlicTorchStrong_0.png"
+    },
+    "garlicTorchWeak_0": {
+      "textures": "textures/blocks/garlicTorchWeak_0.png"
+    },
+    "garlic_stage_0": {
+      "textures": "textures/blocks/garlic_stage_0.png"
+    },
+    "garlic_stage_1": {
+      "textures": "textures/blocks/garlic_stage_1.png"
+    },
+    "garlic_stage_2": {
+      "textures": "textures/blocks/garlic_stage_2.png"
+    },
+    "garlic_stage_3": {
+      "textures": "textures/blocks/garlic_stage_3.png"
+    },
+    "jar_bottom": {
+      "textures": "textures/blocks/jar_bottom.png"
+    },
+    "jar_brine": {
+      "textures": "textures/blocks/jar_brine.png"
+    },
+    "jar_side": {
+      "textures": "textures/blocks/jar_side.png"
+    },
+    "jar_side_void": {
+      "textures": "textures/blocks/jar_side_void.png"
+    },
+    "jar_top": {
+      "textures": "textures/blocks/jar_top.png"
+    },
+    "jar_top_void": {
+      "textures": "textures/blocks/jar_top_void.png"
+    },
+    "test_block": {
+      "textures": "textures/blocks/test_block.png"
+    },
+    "vampireOrchid_0": {
+      "textures": "textures/blocks/vampireOrchid_0.png"
+    },
+    "wheat_stage_0": {
+      "textures": "textures/blocks/wheat_stage_0.png"
+    },
+    "wheat_stage_1": {
+      "textures": "textures/blocks/wheat_stage_1.png"
+    },
+    "wheat_stage_2": {
+      "textures": "textures/blocks/wheat_stage_2.png"
+    },
+    "wheat_stage_3": {
+      "textures": "textures/blocks/wheat_stage_3.png"
+    },
+    "wheat_stage_4": {
+      "textures": "textures/blocks/wheat_stage_4.png"
+    },
+    "wheat_stage_5": {
+      "textures": "textures/blocks/wheat_stage_5.png"
+    },
+    "wheat_stage_6": {
+      "textures": "textures/blocks/wheat_stage_6.png"
+    },
+    "wheat_stage_7": {
+      "textures": "textures/blocks/wheat_stage_7.png"
+    }
+  }
 }
