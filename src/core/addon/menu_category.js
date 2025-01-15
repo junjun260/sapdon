@@ -1,4 +1,4 @@
-export class MenuCategory{
+export class AddonMenuCategory{
     constructor(menu_category,group,is_hidden){
         this.menu_category = menu_category;
         this.group = group;

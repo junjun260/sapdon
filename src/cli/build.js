@@ -9,6 +9,9 @@ import {
     AddonManifestMetadata
 } from '../core/addon/manifest.js';
 
+import { generateItemTextureJson, generateBlockTextureJson } from './tools/textureSet.js';
+
+
 
 const pathConfig = {
     mojangPath: `C:/Users/${process.env.USERNAME}/AppData/Local/Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang/`,
@@ -96,12 +99,24 @@ export const buildProject = (projectPath,projectName) => {
         copyFolder(sourcePath,scriptPath);
     });
 
+    //生成item_texture.json
+    const item_texture_dir = path.join(buildResDirPath,"textures/items");
+    const item_texture_json_path = path.join(buildResDirPath,"textures/item_texture.json")
+    generateItemTextureJson(item_texture_dir,item_texture_json_path);
+
+    //生成terrain_texture.json
+    const terrain_texture_dir = path.join(buildResDirPath,"textures/blocks")
+    const terrain_texture_json_path = path.join(buildResDirPath,"textures/terrain_texture.json")
+    generateBlockTextureJson(terrain_texture_dir,terrain_texture_json_path,projectName);
+
     //动态加载用户modjs文件
-    loadAndExecuteMod(path.join(projectPath,buildConfig.defaultConfig.buildEntry));
+    loadAndExecuteMod(path.join(projectPath,buildConfig.defaultConfig.buildEntry),buildDirPath);
+
+    
     
     setTimeout(()=>{
         //将编译好的文件夹拷贝至mc
-        console.log(path.join(pathConfig.mojangPath,`development_behavior_packs/${projectName}_BP/`));
+        //console.log(path.join(pathConfig.mojangPath,`development_behavior_packs/${projectName}_BP/`));
         copyFolder(buildBehDirPath,path.join(pathConfig.mojangPath,`development_behavior_packs/${projectName}_BP/`));
         copyFolder(buildResDirPath,path.join(pathConfig.mojangPath,`development_resource_packs/${projectName}_RP/`));
     },1000);
