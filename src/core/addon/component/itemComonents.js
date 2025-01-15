@@ -1,10 +1,13 @@
 
 export const ItemCompoment = {
-    fuel:function(duration){
-        return {
-            "minecraft:fuel": {
-                "duration": duration
-            },
+    stable:{
+        fuel:function(duration){
+            return {
+                "minecraft:fuel": {
+                    "duration": duration
+                },
+            }
         }
     }
+    
 }

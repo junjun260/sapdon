@@ -5,8 +5,9 @@ import { loadAndExecuteMod } from './load.js';
 import { 
     AddonManifestHeader, 
     AddonManifestModule, 
-    AddonManifest 
-} from '../core/manifest.js';
+    AddonManifest, 
+    AddonManifestMetadata
+} from '../core/addon/manifest.js';
 
 
 const pathConfig = {
@@ -37,13 +38,14 @@ export const buildProject = (projectPath,projectName) => {
     //读取mod.info文件
     const modInfoPath = path.join(projectPath,"mod.info");
     const modInfo = JSON.parse(readFile(modInfoPath));
+    const min_engine_version = versionStringToArray(modInfo.min_engine_version);
 
     const behManifest = generateBehManifest(
         modInfo.name,
         modInfo.description,
         modInfo.version,
         {
-            min_engine_version:modInfo.min_engine_version,
+            min_engine_version:min_engine_version,
         },
         buildConfig.defaultConfig.dependencies,
         buildConfig.defaultConfig.scriptEntry
@@ -54,7 +56,7 @@ export const buildProject = (projectPath,projectName) => {
         modInfo.description,
         modInfo.version,
         {
-            min_engine_version:modInfo.min_engine_version,
+            min_engine_version:min_engine_version,
         },
         []
     );
@@ -97,10 +99,12 @@ export const buildProject = (projectPath,projectName) => {
     //动态加载用户modjs文件
     loadAndExecuteMod(path.join(projectPath,buildConfig.defaultConfig.buildEntry));
     
-    //将编译好的文件夹拷贝至mc
-    console.log(path.join(pathConfig.mojangPath,`development_behavior_packs/${projectName}_BP/`));
-    copyFolder(buildBehDirPath,path.join(pathConfig.mojangPath,`development_behavior_packs/${projectName}_BP/`));
-    copyFolder(buildResDirPath,path.join(pathConfig.mojangPath,`development_resource_packs/${projectName}_RP/`));
+    setTimeout(()=>{
+        //将编译好的文件夹拷贝至mc
+        console.log(path.join(pathConfig.mojangPath,`development_behavior_packs/${projectName}_BP/`));
+        copyFolder(buildBehDirPath,path.join(pathConfig.mojangPath,`development_behavior_packs/${projectName}_BP/`));
+        copyFolder(buildResDirPath,path.join(pathConfig.mojangPath,`development_resource_packs/${projectName}_RP/`));
+    },1000);
 
 }
 
@@ -118,7 +122,7 @@ const generateBehManifest = (name, description, version, options = {},dependenci
     console.log("开始生成behavior_packs/manifest.json")
     console.log("Entry:",entry)
     const header = new AddonManifestHeader(
-        name,
+        (name+"_BP"),
         description,
         versionStringToArray(version),
         generateUUID(),
@@ -137,15 +141,24 @@ const generateBehManifest = (name, description, version, options = {},dependenci
         versionStringToArray(version)
     );
     if(entry){script_module.entry = entry;}
-    
 
+    const metadata = new AddonManifestMetadata(
+        ["@sapdon"],
+        "MIT",
+        {
+            "sapdon":["1.0.0"]
+        },
+        "addon",
+        "https://github.com/junjun260/sapdon"
+    );
+    
     const manifest = new AddonManifest(
         2,//格式版本
         header,
         [module,script_module],
         dependencies,
-        [],
-        []
+        null,
+        metadata
     );
 
     return JSON.stringify(manifest, null, 2);
@@ -153,7 +166,7 @@ const generateBehManifest = (name, description, version, options = {},dependenci
 
 const generateResManifest = (name, description, version,options = {},dependencies = []) => {
     const header = new AddonManifestHeader(
-        name,
+        (name+"_RP"),
         description,
         versionStringToArray(version),
         generateUUID(),
@@ -161,9 +174,19 @@ const generateResManifest = (name, description, version,options = {},dependencie
     );
     const module = new AddonManifestModule(
         "资源模块",
-        "resource",
+        "resources",
         generateUUID(),
         versionStringToArray(version)
+    );
+
+    const metadata = new AddonManifestMetadata(
+        ["@sapdon"],
+        "MIT",
+        {
+            "sapdon":["1.0.0"]
+        },
+        "addon",
+        "https://github.com/junjun260/sapdon"
     );
 
     const manifest = new AddonManifest(
@@ -171,8 +194,8 @@ const generateResManifest = (name, description, version,options = {},dependencie
         header,
         [module],
         [],
-        [],
-        []
+        null,
+        metadata
     );
 
     return JSON.stringify(manifest, null, 2);
