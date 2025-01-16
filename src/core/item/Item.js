@@ -1,4 +1,4 @@
-import { ItemCompoment } from "../addon/component/itemComonents.js";
+import { ItemComponent } from "../addon/component/itemComponents.js";
 import { AddonItem, AddonItemDefinition, AddonItemDescription } from "../addon/item/item.js";
 import { AddonMenuCategory } from "../addon/menu_category.js";
 
@@ -34,7 +34,7 @@ export class Item {
         this.components = new Map();
 
         // 初始化默认组件
-        this.addComponent(ItemCompoment.icon(this.texture));
+        this.addComponent(ItemComponent.setIcon(this.texture));
     }
 
     /**

@@ -1,13 +1,30 @@
-import { ItemCompoment } from "../../src/core/addon/component/itemComonents.js";
+import { ItemComponent} from "../../src/core/addon/component/itemComponents.js";
 import { BlockAPI } from "../../src/core/factory/BlockFactory.js";
 import { ItemAPI } from "../../src/core/factory/ItemFactory.js";
 
 
 
-const item = ItemAPI.createItem("sapdon:test_item","items","masterball");
-item.addComponent(ItemCompoment.displayName("大师球"));
 
-const block =BlockAPI.createBasicBlock(
+ItemAPI.createItem("sapdon:test_item","items","masterball")
+       .addComponent(
+            ItemComponent.combineComponents(
+                ItemComponent.setDisplayName("大师球"),
+                ItemComponent.setMaxStackSize(16),
+                ItemComponent.setUseModifiers(0.9,1)
+            )
+       );
+
+
+
+
+
+
+
+
+
+
+
+const block = BlockAPI.createBasicBlock(
     "sapdon:test_block",
     "construction",
     [

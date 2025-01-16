@@ -4,7 +4,7 @@ import { Item } from '../core/item/Item.js';
 import path from 'path';
 import { saveFile } from './utils.js'; 
 import { BlockAPI } from '../core/factory/BlockFactory.js';
-import { BasicBlock } from '../core/block/block.js';
+import { BasicBlock } from '../core/block/BasicBlock.js';
 
 /**
  * 加载并执行模组文件
@@ -78,6 +78,9 @@ const processBlocks = async (buildBehDirPath, buildResDirPath) => {
 
             // 在 blocks.json 中注册纹理
             const textures_arr = block.textures;
+            if(textures_arr.length!= 6){
+                for(let i=0;i<6;i++) textures_arr.push(textures_arr[0]);
+            } 
             blocksJson[block.identifier] = {
                 textures: {
                     "up": textures_arr[0],

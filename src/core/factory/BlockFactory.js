@@ -1,4 +1,4 @@
-import { BasicBlock } from "../block/block.js";
+import { BasicBlock } from "../block/BasicBlock.js";
 
 
 export const BlockAPI = {

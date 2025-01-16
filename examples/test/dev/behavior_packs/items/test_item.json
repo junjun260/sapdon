@@ -14,6 +14,11 @@
       },
       "minecraft:display_name": {
         "value": "大师球"
+      },
+      "minecraft:max_stack_size": 16,
+      "minecraft:use_modifiers": {
+        "movement_modifier": 0.9,
+        "use_duration": 1
       }
     }
   }
