@@ -102,7 +102,7 @@ export const buildProject = (projectPath,projectName) => {
     //生成item_texture.json
     const item_texture_dir = path.join(buildResDirPath,"textures/items");
     const item_texture_json_path = path.join(buildResDirPath,"textures/item_texture.json")
-    generateItemTextureJson(item_texture_dir,item_texture_json_path);
+    generateItemTextureJson(item_texture_dir,item_texture_json_path,projectName);
 
     //生成terrain_texture.json
     const terrain_texture_dir = path.join(buildResDirPath,"textures/blocks")

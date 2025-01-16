@@ -1,7 +1,7 @@
 export class AddonMenuCategory{
-    constructor(menu_category,group,is_hidden){
-        this.menu_category = menu_category;
-        this.group = group;
+    constructor(category,group,is_hidden){
+        this.category = category;
+        this.group = group ;
         this.is_hidden_in_commands = is_hidden;
     }
 }

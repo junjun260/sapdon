@@ -3,53 +3,71 @@ import { AddonItem, AddonItemDefinition, AddonItemDescription } from "../addon/i
 import { AddonMenuCategory } from "../addon/menu_category.js";
 
 export class Item {
+    /**
+     * 物品类
+     * @param {string} identifier 物品唯一标识符
+     * @param {string} category 菜单栏分类 可选："construction", "nature", "equipment", "items", and "none"
+     * @param {string} texture 物品纹理
+     * @param {Object} options 可选参数
+     * @param {string} options.group 分组
+     * @param {boolean} options.hide_in_command 是否在命令中隐藏，默认为 false
+     */
     constructor(identifier, category, texture, options = {}) {
         // 参数校验
-        if (!identifier || !category || !texture) {
-            throw new Error("identifier, category, and texture are required");
+        if (!identifier || typeof identifier !== "string") {
+            throw new Error("identifier is required and must be a string");
         }
+        if (!category || typeof category !== "string") {
+            throw new Error("category is required and must be a string");
+        }
+        if (!texture || typeof texture !== "string") {
+            throw new Error("texture is required and must be a string");
+        }
+
+        const { group, hide_in_command = false } = options;
 
         this.identifier = identifier;
         this.category = category;
         this.texture = texture;
-        this.group = options.group;
-        this.hide_in_command = options.hide_in_command || false; // 默认值为 false
+        this.group = group;
+        this.hide_in_command = hide_in_command;
         this.components = new Map();
 
         // 初始化默认组件
-        this.addComponent("minecraft:icon", ItemCompoment.stable.icon(this.texture));
+        this.addComponent(ItemCompoment.icon(this.texture));
     }
 
     /**
      * 添加组件
-     * @param {string} key - 组件名称
-     * @param {object} value - 组件值
+     * @param {Map} componentMap 组件 Map
      */
-    addComponent(key, value) {
-        if (!key || !value) {
-            throw new Error("key and value are required");
+    addComponent(componentMap) {
+        if (!componentMap || !(componentMap instanceof Map)) {
+            throw new Error("componentMap is required and must be a Map");
         }
-        this.components.set(key, value);
+        for (const [key, value] of componentMap.entries()) {
+            this.components.set(key, value);
+        }
     }
 
     /**
      * 移除组件
-     * @param {string} key - 组件名称
+     * @param {string} key 组件名称
      */
     removeComponent(key) {
-        if (!key) {
-            throw new Error("key is required");
+        if (!key || typeof key !== "string") {
+            throw new Error("key is required and must be a string");
         }
         this.components.delete(key);
     }
 
     /**
      * 将物品转换为 JSON 格式
-     * @returns {object} - 物品的 JSON 数据
+     * @returns {Object} JSON 格式的物品对象
      */
     toJson() {
         const item = new AddonItem(
-            "1.21.40", // 版本号
+            "1.20.20", // 格式版本
             new AddonItemDefinition(
                 new AddonItemDescription(
                     this.identifier,
@@ -65,17 +83,3 @@ export class Item {
         return item.toJson();
     }
 }
-
-// 示例用法
-/*
-const item = new Item("sapdon:test", "items", "masterball", {
-    group: "tools",
-    hide_in_command: true
-});
-
-// 添加自定义组件
-item.addComponent("minecraft:fuel", { duration: 60 });
-
-console.log(JSON.stringify(item.toJson(), null, 2));
-debugger;
-*/

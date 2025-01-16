@@ -1,12 +1,20 @@
 {
-  "format_version": "1.21.40",
+  "format_version": "1.20.20",
   "minecraft:item": {
     "description": {
       "identifier": "sapdon:test_item",
       "menu_category": {
-        "menu_category": "items"
+        "category": "items",
+        "is_hidden_in_commands": false
       }
     },
-    "components": {}
+    "components": {
+      "minecraft:icon": {
+        "texture": "masterball"
+      },
+      "minecraft:display_name": {
+        "value": "大师球"
+      }
+    }
   }
 }

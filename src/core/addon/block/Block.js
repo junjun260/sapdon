@@ -1,4 +1,4 @@
-import { MenuCategory } from "../menu_category";
+import { AddonMenuCategory } from "../menu_category.js";
 
 export class AddonBlock {
     /**
@@ -10,17 +10,25 @@ export class AddonBlock {
         this.format_version = format_version;
         this.definitions = definitions;
     }
+    toJson(){
+        return {
+            format_version:this.format_version,
+            ["minecraft:block"]:this.definitions
+        }
+    }
 }
 
 export class AddonBlockDefinition{
     /**
      * 方块定义类
      * @param {AddonBlockDescription} description 方块描述
-     * @param {Map} components 方块组件
+     * @param {Object} components 方块组件
+     * @param {Array} permutations 方块变体
      */
-    constructor(description,components){
+    constructor(description,components,permutations=[]){
         this.description = description;
         this.components = components;
+        this.permutations = permutations;
     }
 }
 
@@ -29,7 +37,7 @@ export class AddonBlockDescription {
      * 方块描述类
      * @param {string} identifier 唯一标识符
      * @param {map} states 方块状态
-     * @param {MenuCategory} menu_category 
+     * @param {AddonMenuCategory} menu_category 
      */
     constructor(identifier,states,menu_category){
         this.identifier = identifier;
