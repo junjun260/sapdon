@@ -73,7 +73,7 @@ export class ItemComponent {
     if (typeof texture !== "string") {
       throw new Error('图标纹理必须是字符串类型');
     }
-    return new Map().set("minecraft:icon", { texture: texture });
+    return new Map().set("minecraft:icon", texture);
   }
 
   /**
@@ -165,6 +165,21 @@ export class ItemComponent {
     }
 
     return new Map().set("minecraft:wearable", wearableComponent);
+  }
+  /**
+  * 设置物品的使用动画组件。
+  * @param {String} animation - 物品使用时的动画类型（如 "eat"、"drink" 等）。
+  * @returns {Map} - 新的组件集合。
+  * @throws {Error} - 如果 animation 不是字符串类型。
+  */
+  static setUseAnimation(animation) {
+    // 检查 animation 是否为字符串
+    if (typeof animation !== "string") {
+      throw new Error('animation 必须是字符串类型');
+    }
+
+    // 返回包含动画设置的 Map 对象
+    return new Map().set("minecraft:use_animation", animation);
   }
 
   /**
