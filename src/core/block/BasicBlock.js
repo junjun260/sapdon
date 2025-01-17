@@ -19,8 +19,8 @@ export class BasicBlock {
         if (!category || typeof category !== "string") {
             throw new Error("category is required and must be a string");
         }
-        if (!Array.isArray(textures_arr) || textures_arr.length !== 6) {
-            throw new Error("textures_arr must be an array of length 6");
+        if (!Array.isArray(textures_arr) ) {
+            throw new Error("textures_arr must be an array ");
         }
 
         const { hide_in_command = false } = options;

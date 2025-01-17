@@ -9,7 +9,7 @@ export class Item {
      * @param {string} category 菜单栏分类 可选："construction", "nature", "equipment", "items", and "none"
      * @param {string} texture 物品纹理
      * @param {Object} options 可选参数
-     * @param {string} options.group 分组
+     * @param {string} options.group 分组 
      * @param {boolean} options.hide_in_command 是否在命令中隐藏，默认为 false
      */
     constructor(identifier, category, texture, options = {}) {
@@ -24,7 +24,11 @@ export class Item {
             throw new Error("texture is required and must be a string");
         }
 
-        const { group, hide_in_command = false } = options;
+        const { 
+            group, 
+            hide_in_command = false,
+            max_stack_size = 64,
+        } = options;
 
         this.identifier = identifier;
         this.category = category;
@@ -34,7 +38,12 @@ export class Item {
         this.components = new Map();
 
         // 初始化默认组件
-        this.addComponent(ItemComponent.setIcon(this.texture));
+        this.addComponent(
+            ItemComponent.combineComponents(
+                ItemComponent.setIcon(this.texture),
+                ItemComponent.setMaxStackSize(max_stack_size)
+            )
+        );
     }
 
     /**
@@ -67,7 +76,7 @@ export class Item {
      */
     toJson() {
         const item = new AddonItem(
-            "1.20.20", // 格式版本
+            "1.21.40", // 格式版本
             new AddonItemDefinition(
                 new AddonItemDescription(
                     this.identifier,

@@ -1,6 +1,6 @@
 import { pathToFileURL } from 'url';
 import { ItemAPI } from '../core/factory/ItemFactory.js';
-import { Item } from '../core/item/Item.js';
+import { Item } from '../core/item/item.js';
 import path from 'path';
 import { saveFile } from './utils.js'; 
 import { BlockAPI } from '../core/factory/BlockFactory.js';
@@ -47,8 +47,9 @@ const processItems = async (buildBehDirPath) => {
 
     for (const item of ItemList) {
         if (item instanceof Item) {
+            const namespace = item.identifier.split(':')[0];
             const itemName = item.identifier.split(":")[1];
-            const itemPath = path.join(itemsDirPath, `${itemName}.json`);
+            const itemPath = path.join(itemsDirPath, `${namespace}_${itemName}.json`);
             console.log("保存物品文件:", itemPath);
             saveFile(itemPath, JSON.stringify(item.toJson(), null, 2));
         }
@@ -71,8 +72,9 @@ const processBlocks = async (buildBehDirPath, buildResDirPath) => {
     const blockList = BlockAPI.getAllBlocks();
     for (const block of blockList) {
         if (block instanceof BasicBlock) {
+            const namespace = block.identifier.split(':')[0];
             const blockName = block.identifier.split(':')[1];
-            const blockPath = path.join(blocksDirPath, `${blockName}.json`);
+            const blockPath = path.join(blocksDirPath, `${namespace}_${blockName}.json`);
             console.log("保存方块文件:", blockPath);
             saveFile(blockPath, JSON.stringify(block.toJson(), null, 2));
 
